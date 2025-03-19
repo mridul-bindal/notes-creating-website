@@ -1,0 +1,128 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 40px;
+    min-height: 100vh;
+  }
+  
+  /* Headings */
+  h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Centering utility */
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Form container */
+  .form,
+  form {
+    background-color: #1e1e1e;
+    padding: 30px 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Labels */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Input & Textarea */
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #2c2c2c;
+    color: white;
+  }
+  
+  /* Read-only fields */
+  input[readonly] {
+    background-color: #2c2c2c;
+    color: #888;
+    cursor: not-allowed;
+  }
+  
+  /* Buttons */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Task boxes (on index.ejs) */
+  .task {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .task1 {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .task1 h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .task1 a {
+    display: block;
+    margin: 5px 0;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .task1 a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Divider */
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #333;
+    margin: 40px auto;
+    max-width: 800px;
+  }
+  

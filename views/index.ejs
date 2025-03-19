@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/images/stylesheets/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="/public/images/stylesheets/style.css" />
 </head>
-
 <body>
-    <div>
-        <div class="center">
-            <div class="form">
-                <form id="title" action="/create" method="post">
-                    <label for="title">title goes here </label>
-                    <input type="text" id="title" name="title" value="title?">
-                    <label for="Text area">Enter your text</label>
-                    <input type="text" id="text_area" name="text_area" value="text area goes here">
-                    <button type="submit">create task</button>
-                </form>
+  <h1>TASK MANAGER</h1>
+  <h2>Welcome to task manager!!</h2>
 
-            </div>
-        </div>
-        <div class="task">
-            <% if (files.length> 0) { %>
-                <% files.forEach(function(val) { %>
-                    <div class="task1">
-                        <h1>
-                            <%= val%>
-                        </h1>
-                        <a href="">Read more</a>
-                    </div>
-                    <% }) %>
-                        <% } else { %>
-                            <h3>No task yet</h3>
-                            <% } %>
-
-
-        </div>
+  <div>
+    <div class="center">
+      <div class="form">
+        <form id="title" action="/create" method="post">
+          <label for="title">title goes here</label>
+          <input type="text" id="title" name="title" placeholder="title?">
+          
+          <label for="text_area">Enter your text</label>
+          <input type="text" id="text_area" name="text_area" placeholder="text area goes here">
+          
+          <button type="submit">create task</button>
+        </form>
+      </div>
     </div>
-</body>
 
+    <div class="task">
+      <% if (files.length > 0) { %>
+        <% files.forEach(function(val, index) { %>
+          <div class="task1">
+            <h1><%= val %></h1>
+            
+            <button class="toggle-btn" data-id="options-<%= index %>">Show More Options</button>
+
+            <div class="task-options hidden" id="options-<%= index %>">
+              <a href="/files/<%= val %>">Read more</a>
+              <a href="/edit/content/<%= val %>">Edit task</a>
+              <form action="/delete/<%= val %>" method="post">
+                <button type="submit" class="delete-btn">Delete</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <h3>No task yet</h3>
+      <% } %>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        const target = document.getElementById(id);
+        target.classList.toggle('hidden');
+        button.textContent = target.classList.contains('hidden') ? 'Show More Options' : 'Hide Options';
+      });
+    });
+  </script>
+</body>
 </html>
